@@ -17,7 +17,7 @@ Automate your deployments with **Jenkins** and control them with a simple Slack 
 
 ---
 
-## 📦 Step 1: Install Docker
+ 📦 Step 1: Install Docker
 
 - **Windows/Mac:** [Install Docker Desktop](https://www.docker.com/products/docker-desktop)  
 - **Linux:** Use your package manager (`apt`, `dnf`, etc.)
@@ -26,6 +26,7 @@ Verify installation:
 
 ```bash
 docker --version
+
 🐳 Step 2: Run Jenkins with Docker
 1️⃣ Create a Docker network:
 
