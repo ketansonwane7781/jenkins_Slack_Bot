@@ -1,30 +1,31 @@
-# 🚀 **Jenkins + Slack Bot CI/CD with Docker**
+# 🚀 Jenkins + Slack Bot CI/CD with Docker
 
 Automate your deployments using **Jenkins**, and trigger them directly from **Slack** with a custom bot — all running seamlessly in **Docker containers**.
 
 ---
 
-## 📋 **Table of Contents**
-- **[⚙️ Prerequisites](#️-step-1-install-docker)**
-- **[🐳 Run Jenkins with Docker](#-step-2-run-jenkins-with-docker)**
-- **[🔐 Set Up Jenkins](#-step-3-set-up-jenkins)**
-- **[🧱 Create a Jenkins Job](#-step-4-create-a-jenkins-job)**
-- **[🤖 Build the Slack Bot](#-step-5-build-your-slack-bot)**
-- **[📡 Run Everything](#-step-6-run-everything-with-one-command)**
-- **[✅ Create Slack App](#-step-7-create-slack-app)**
+## 📋 Table of Contents
+
+- [⚙️ Prerequisites](#-step-1-install-docker)
+- [🐳 Run Jenkins with Docker](#-step-2-run-jenkins-with-docker)
+- [🔐 Set Up Jenkins](#-step-3-set-up-jenkins)
+- [🧱 Create a Jenkins Job](#-step-4-create-a-jenkins-job)
+- [🤖 Build the Slack Bot](#-step-5-build-your-slack-bot)
+- [📡 Run Everything](#-step-6-run-everything-with-one-command)
+- [✅ Create Slack App](#-step-7-create-slack-app)
+- [📝 Project Report](#-project-report)
 
 ---
 
-## 📦 **Step 1: Install Docker**
+## 📦 Step 1: Install Docker
 
-**➤ Windows/Mac:** [Install Docker Desktop](https://www.docker.com/products/docker-desktop)  
-**➤ Linux:** Use your package manager (`apt`, `dnf`, etc.)
+- **Windows/Mac**: [Install Docker Desktop](https://www.docker.com/products/docker-desktop)
+- **Linux**: Use your package manager (`apt`, `dnf`, etc.)
 
-✅ **Verify Installation:**
+✅ Verify installation:
 
 ```bash
 docker --version
-
 🐳 Step 2: Run Jenkins with Docker
 ① Create Docker network:
 
@@ -47,34 +48,34 @@ docker run -d --name jenkins \
 📍 Jenkins will be available at: http://localhost:8080
 
 🔐 Step 3: Set Up Jenkins
-① Get admin password:
+① Get Jenkins admin password:
 
 bash
 Copy
 Edit
 docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
-② Finish initial setup:
+② Complete setup in the browser:
 
 Open http://localhost:8080
 
-Click "Install suggested plugins"
+Click Install suggested plugins
 
-Create your admin user
+Create an admin user
 
-Complete setup
+Finish the setup process
 
 🧱 Step 4: Create a Jenkins Job
 ① Create a new Pipeline job:
 
 Jenkins Dashboard → New Item
 
-Name it: deploy-app
+Name: deploy-app
 
-Select Pipeline, click OK
+Type: Pipeline → OK
 
 ② Enable Remote Trigger:
 
-Check "Trigger builds remotely"
+Check ✅ "Trigger builds remotely"
 
 Set Token: mytoken
 
@@ -93,14 +94,14 @@ pipeline {
     }
   }
 }
-④ Trigger the job:
+④ Trigger the job via:
 
 bash
 Copy
 Edit
 http://localhost:8080/job/deploy-app/build?token=mytoken
 🤖 Step 5: Build Your Slack Bot
-① Initialize Node project:
+① Initialize Node.js project:
 
 bash
 Copy
@@ -205,7 +206,7 @@ volumes:
 networks:
   jenkins:
 📡 Step 6: Run Everything with One Command
-① Copy and configure .env:
+① Copy .env.example to .env and fill in your values:
 
 bash
 Copy
@@ -228,22 +229,12 @@ Edit
 docker-compose up --build
 ✅ Step 7: Create Slack App
 ① Go to https://api.slack.com/apps
-② Create a new app → "From scratch"
+② Create a new app → From Scratch
 ③ Add a Slash Command:
 
 Command: /deploy-app
 
-Request URL: http://<your-public-url>/slack/commands (use ngrok for local testing)
+Request URL: http://<your-public-url>/slack/commands (Use ngrok for local testing)
+
 ④ Install the app to your Slack workspace
 ⑤ Copy Signing Secret → paste into .env as SLACK_VERIFICATION_TOKEN
-
-🌟 All Set!
-You can now deploy your app simply by typing:
-
-bash
-Copy
-Edit
-/deploy-app
-
-
-in your Slack workspace. Jenkins will build it, and your bot will confirm it — all automated! 🥳
