@@ -17,7 +17,7 @@ Automate your deployments using **Jenkins**, and trigger them directly from **Sl
 
 ---
 
-## 📦 Step 1: Install Docker
+📦 Step 1: Install Docker
 
 - **Windows/Mac**: [Install Docker Desktop](https://www.docker.com/products/docker-desktop)
 - **Linux**: Use your package manager (`apt`, `dnf`, etc.)
