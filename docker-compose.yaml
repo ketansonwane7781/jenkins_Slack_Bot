@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    networks:
+      - jenkins
+  slack-bot:
+    build: .
+    container_name: slack-bot
+    ports:
+      - "3000:3000"
+    env_file: .env
+    depends_on:
+      - jenkins
+    networks:
+      - jenkins
+volumes:
+  jenkins_home:
+networks:
+  jenkins:
