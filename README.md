@@ -16,6 +16,14 @@ Automate your deployments using **Jenkins**, and trigger them directly from **Sl
 - [📝 Project Report](#-project-report)
 
 ---
+## ScreenShots 
+![Screenshot 2025-05-10 154815](https://github.com/user-attachments/assets/2998cf5e-d1b3-44dc-93ab-e4996dee06d2)
+![Screenshot 2025-05-10 154824](https://github.com/user-attachments/assets/b7024aa6-ca49-45e0-920a-51d961a17408)
+![Screenshot 2025-05-10 154842](https://github.com/user-attachments/assets/c6373cf0-b028-40c4-9aec-3940c80cd264)
+![Screenshot 2025-05-10 154717](https://github.com/user-attachments/assets/65518f87-5d1f-4c18-9ada-31f295f1adda)
+![Screenshot 2025-05-10 154657](https://github.com/user-attachments/assets/9391bc15-9be6-452e-92d8-83e5ab52cca7)
+![Screenshot 2025-05-10 154624](https://github.com/user-attachments/assets/eb364ac7-cb23-4170-ad31-c081e804c3f7)
+
 
 📦 Step 1: Install Docker
 
